@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from "./App.module.css";
+import {useState} from 'react'
+import BookList from "./components/BookList";
+import Header from "./components/Header";
+import InputForm from "./components/InputForm";
+const BOOKS = [
+  { id: 1, title: "name of the wind", author: "simeon tigra" },
+  { id: 2, title: "The way of the kings", author: "dave santan" },
+];
+
 
 function App() {
+const [books, setBooks] = useState(BOOKS)
+  const addBookHandler = (book)=>{
+setBooks([book,...books])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={classes.App}>
+      <header>
+        <Header bookCount={3} />
       </header>
+      <main>
+        <BookList books={books}/>
+       
+        <InputForm  handleNewBook = {addBookHandler}/>
+      </main>
     </div>
   );
 }

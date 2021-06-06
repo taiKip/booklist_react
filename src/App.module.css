@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+margin-top: 1rem;
+}
+
+.App header{
+  grid-column: 4/10;
+  background: var(--secondary);
+ 
+}
+.App main{
+  padding: 1.2rem;
+  grid-column: 4/10;
+  background: rgb(114, 70, 114);
+}
+
+
+@media screen  and (max-width:600px){
+ .App{
+   padding: 1rem 1rem;
+ }
+  .App header,.App main{
+    grid-column: 1/13;
+  }
+}
